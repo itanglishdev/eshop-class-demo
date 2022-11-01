@@ -11,6 +11,7 @@ import {AiFillHome}  from 'react-icons/ai'
 import{BsCart} from 'react-icons/bs'
 import { useContext } from 'react';
 import { Context } from './Context';
+import {Link} from 'react-router-dom'
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -57,7 +58,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export default function SearchAppBar() {
 
     const {state,dispatch} = useContext(Context)
-    
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -70,6 +71,7 @@ export default function SearchAppBar() {
             sx={{ mr: 2 }}
           >
             <MenuIcon />
+            <Link className='text-white no-underline' to='/'> <AiFillHome/></Link>
           </IconButton>
           <Typography
             variant="h6"
@@ -77,7 +79,7 @@ export default function SearchAppBar() {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
-            <AiFillHome/>
+           
           </Typography>
           <Search>
             <SearchIconWrapper>
@@ -88,7 +90,7 @@ export default function SearchAppBar() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
-          <BsCart/>{state.cart.length}
+          <Link className='text-white no-underline' to='/cart'><BsCart/>{state.cart.length}</Link>
         </Toolbar>
       </AppBar>
     </Box>

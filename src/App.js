@@ -2,7 +2,6 @@ import './App.css';
 import React, {useContext, useEffect} from 'react'
 import { Context } from './components/Context';
 import Card from './components/Card';
-import Header from './components/Header'
 
 function App() {
 
@@ -24,15 +23,13 @@ function App() {
   console.log('state', state)
 
   return (
-    <React.Fragment>
-    <Header/>
+   
     <div className='flex justify-center items-center flex-wrap gap-[20px]'>
       {
         state.products.map((item,idx) => <Card key={idx} product={item} />)
       }
     </div>
     
-    </React.Fragment>
   )
 }
 
