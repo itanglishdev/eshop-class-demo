@@ -4,8 +4,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function CardBootstrap(props) {
   return (
-    <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src={props.product.image} alt='image' />
+    <Card style={{ width: '18rem', height: '400px',padding:'10px' }}>
+      <Card.Img 
+      className='w-[200px] h-[200px] object-cover'
+      variant="top" src={props.product.image} alt='image' />
       <Card.Body>
         <Card.Title>{props.product.title}</Card.Title>
         <Card.Text>
