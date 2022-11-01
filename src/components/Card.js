@@ -3,12 +3,14 @@ import Card from 'react-bootstrap/Card';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useContext } from 'react';
 import {Context} from './Context';
+import {Link} from 'react-router-dom'
 
 function CardBootstrap(props) {
 
     const {dispatch} = useContext(Context)
   return (
-    <Card style={{ width: '18rem', height: '400px',padding:'10px' }}>
+   <Link to={`/product/${props.product.id}`}>
+     <Card style={{ width: '18rem', height: '400px',padding:'10px' }}>
       <Card.Img 
       className='w-[200px] h-[200px] object-cover'
       variant="top" src={props.product.image} alt='image' />
@@ -25,6 +27,7 @@ function CardBootstrap(props) {
         } variant="primary">Add to Cart</Button>
       </Card.Body>
     </Card>
+   </Link>
   );
 }
 

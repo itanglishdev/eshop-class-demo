@@ -22,11 +22,15 @@ export const Context = createContext()
                     cart: [...state.cart,action.payload]
                 }
  
-                case 'removeCart':
-                return 
+                // case 'removeCart':
+                // return 
                          
                 case 'search':
-                return
+                return {
+                    ...state,
+                    searchtext: action.payload
+
+                }
 
                 default:
                     return
