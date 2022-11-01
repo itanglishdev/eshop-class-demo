@@ -1,8 +1,12 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useContext } from 'react';
+import {Context} from './Context';
 
 function CardBootstrap(props) {
+
+    const {dispatch} = useContext(Context)
   return (
     <Card style={{ width: '18rem', height: '400px',padding:'10px' }}>
       <Card.Img 
@@ -13,7 +17,12 @@ function CardBootstrap(props) {
         <Card.Text>
           {props.product.price}
         </Card.Text>
-        <Button variant="primary">Add to Cart</Button>
+        <Button onClick={
+            ()=> dispatch({
+                type:'addCart',
+                payload: props.product
+            })
+        } variant="primary">Add to Cart</Button>
       </Card.Body>
     </Card>
   );

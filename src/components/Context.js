@@ -17,8 +17,11 @@ export const Context = createContext()
                 }
 
                 case 'addCart':
-                return
-
+                return {
+                    ...state,
+                    cart: [...state.cart,action.payload]
+                }
+ 
                 case 'removeCart':
                 return 
                          

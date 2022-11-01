@@ -8,6 +8,9 @@ import InputBase from '@mui/material/InputBase';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import {AiFillHome}  from 'react-icons/ai'
+import{BsCart} from 'react-icons/bs'
+import { useContext } from 'react';
+import { Context } from './Context';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -52,6 +55,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function SearchAppBar() {
+
+    const {state,dispatch} = useContext(Context)
+    
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -82,6 +88,7 @@ export default function SearchAppBar() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
+          <BsCart/>{state.cart.length}
         </Toolbar>
       </AppBar>
     </Box>
