@@ -73,7 +73,6 @@ export default function SearchAppBar() {
             sx={{ mr: 2 }}
           >
             <MenuIcon />
-            <Link className='text-white no-underline' to='/'> <AiFillHome/></Link>
           </IconButton>
           <Typography
             variant="h6"
@@ -81,11 +80,12 @@ export default function SearchAppBar() {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
-           
+            <Link className='text-white no-underline' to='/'> <AiFillHome/></Link>
+
           </Typography>
           <Search>
-            <SearchIconWrapper>
-              <SearchIcon onClick={()=> navigate('/searcresults')} />
+            <SearchIconWrapper >
+              <SearchIcon/>
             </SearchIconWrapper>
             <StyledInputBase
               placeholder="Search…"
@@ -95,6 +95,13 @@ export default function SearchAppBar() {
                 type:'search',
                 payload:e.target.value
               })}
+              onKeyUp={(e)=> {
+                if (e.key === 'Enter') {
+                    navigate('/searchresults')
+                // console.log(e.key);
+
+                }
+            }}
             />
           </Search>
           <Link className='text-white no-underline' to='/cart'><BsCart/>{state.cart.length}</Link>
