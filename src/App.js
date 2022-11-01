@@ -23,10 +23,12 @@ function App() {
   console.log('state', state)
 
   return (
-    <div className="App">
-      <Card/>
+    <div className='flex justify-center items-center flex-wrap gap-[20px]'>
+      {
+        state.products.map((item,idx) => <Card key={idx} product={item} />)
+      }
     </div>
-  );
+  )
 }
 
 export default App;
